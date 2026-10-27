@@ -1,7 +1,17 @@
-// VIEWMODEL (shared state): Zustand store for all properties.
-// TODO (together): build with create() exactly like Lab 4, Task 6.1:
-//   properties: Property[]            starts as PROPERTIES from ./data
-//   addProperty(p: Property)          returns a NEW array: [...s.properties, p]
-//   removeProperty(id: string)        returns a NEW array using filter()
-// Remember Lab 4's tip: never push() into the old array.
-export {};
+import { create } from 'zustand';
+import { Property } from './types';
+import { PROPERTIES } from './data';
+
+type PropertiesState = {
+  properties: Property[];
+  addProperty: (p: Property) => void;
+  removeProperty: (id: string) => void;
+};
+
+export const usePropertiesStore = create<PropertiesState>()((set) => ({
+  properties: PROPERTIES,
+
+  addProperty: (p) => set((s) => ({ properties: [...s.properties, p] })),
+
+  removeProperty: (id) => set((s) => ({ properties: s.properties.filter((p) => p.id !== id) })),
+}));
