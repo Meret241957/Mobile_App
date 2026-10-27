@@ -1,0 +1,17 @@
+{
+  "expo": {
+    "name": "Smart Property Finder",
+    "slug": "smart-property-finder",
+    "scheme": "smartpropertyfinder",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "plugins": [
+      "expo-router",
+      "expo-status-bar"
+    ],
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
